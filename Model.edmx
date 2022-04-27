@@ -4,21 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Хранилище Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Client">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Surname" Type="nvarchar" MaxLength="40" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
-          <Property Name="Patronymic" Type="nvarchar" MaxLength="40" />
-          <Property Name="PhoneNumber" Type="nvarchar" MaxLength="11" Nullable="false" />
-          <Property Name="Email" Type="nvarchar" MaxLength="50" />
-          <Property Name="Login" Type="nvarchar" MaxLength="35" Nullable="false" />
-          <Property Name="Password" Type="nvarchar" MaxLength="35" Nullable="false" />
-          <Property Name="Role" Type="nvarchar" MaxLength="35" />
-        </EntityType>
+    <Schema Namespace="Хранилище MusicEntites" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Delivery">
           <Key>
             <PropertyRef Name="ID" />
@@ -93,6 +79,20 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Type" Type="nvarchar" MaxLength="40" Nullable="false" />
         </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Patronymic" Type="nvarchar" MaxLength="40" />
+          <Property Name="PhoneNumber" Type="nvarchar" MaxLength="11" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Login" Type="nvarchar" MaxLength="35" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Role" Type="nvarchar" MaxLength="35" />
+        </EntityType>
         <Association Name="FK_Delivery_DeliveryType">
           <End Role="DeliveryType" Type="Self.DeliveryType" Multiplicity="1" />
           <End Role="Delivery" Type="Self.Delivery" Multiplicity="*" />
@@ -106,10 +106,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Order_Client">
-          <End Role="Client" Type="Self.Client" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="1" />
           <End Role="Order" Type="Self.Order" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Client">
+            <Principal Role="User">
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="Order">
@@ -177,8 +177,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Хранилище ModelContainer">
-          <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
+        <EntityContainer Name="Хранилище MusicEntitesContainer">
           <EntitySet Name="Delivery" EntityType="Self.Delivery" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DeliveryType" EntityType="Self.DeliveryType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
@@ -187,12 +186,13 @@
           <EntitySet Name="Supplier" EntityType="Self.Supplier" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TypeOfPayment" EntityType="Self.TypeOfPayment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Delivery_DeliveryType" Association="Self.FK_Delivery_DeliveryType">
             <End Role="DeliveryType" EntitySet="DeliveryType" />
             <End Role="Delivery" EntitySet="Delivery" />
           </AssociationSet>
           <AssociationSet Name="FK_Order_Client" Association="Self.FK_Order_Client">
-            <End Role="Client" EntitySet="Client" />
+            <End Role="User" EntitySet="User" />
             <End Role="Order" EntitySet="Order" />
           </AssociationSet>
           <AssociationSet Name="FK_Order_Delivery" Association="Self.FK_Order_Delivery">
@@ -219,22 +219,7 @@
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Client">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Surname" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Patronymic" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
-          <Property Name="PhoneNumber" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Login" Type="String" MaxLength="35" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Password" Type="String" MaxLength="35" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Order" Relationship="Self.FK_Order_Client" FromRole="Client" ToRole="Order" />
-          <Property Name="Role" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
-        </EntityType>
+      <Schema Namespace="MusicEntites" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Delivery">
           <Key>
             <PropertyRef Name="ID" />
@@ -265,8 +250,8 @@
           <Property Name="ID_Client" Type="Int32" Nullable="false" />
           <Property Name="ID_Product" Type="Int32" Nullable="false" />
           <Property Name="ID_TypeOfPayment" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Client" Relationship="Self.FK_Order_Client" FromRole="Order" ToRole="Client" />
           <NavigationProperty Name="Delivery" Relationship="Self.FK_Order_Delivery" FromRole="Order" ToRole="Delivery" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Order_Client" FromRole="Order" ToRole="User" />
           <NavigationProperty Name="Product" Relationship="Self.FK_Order_Product" FromRole="Order" ToRole="Product" />
           <NavigationProperty Name="TypeOfPayment" Relationship="Self.FK_Order_TypeOfPayment" FromRole="Order" ToRole="TypeOfPayment" />
         </EntityType>
@@ -322,18 +307,21 @@
           <Property Name="Type" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Order" Relationship="Self.FK_Order_TypeOfPayment" FromRole="TypeOfPayment" ToRole="Order" />
         </EntityType>
-        <Association Name="FK_Order_Client">
-          <End Role="Client" Type="Self.Client" Multiplicity="1" />
-          <End Role="Order" Type="Self.Order" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Client">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Order">
-              <PropertyRef Name="ID_Client" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Surname" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Patronymic" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Login" Type="String" MaxLength="35" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Role" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Order" Relationship="Self.FK_Order_Client" FromRole="User" ToRole="Order" />
+        </EntityType>
         <Association Name="FK_Delivery_DeliveryType">
           <End Role="DeliveryType" Type="Self.DeliveryType" Multiplicity="1" />
           <End Role="Delivery" Type="Self.Delivery" Multiplicity="*" />
@@ -355,6 +343,18 @@
             </Principal>
             <Dependent Role="Order">
               <PropertyRef Name="ID_Delivery" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Client">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="ID_Client" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -406,8 +406,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Entities1" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Client" EntityType="Self.Client" />
+        <EntityContainer Name="Entities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Delivery" EntityType="Self.Delivery" />
           <EntitySet Name="DeliveryType" EntityType="Self.DeliveryType" />
           <EntitySet Name="Order" EntityType="Self.Order" />
@@ -416,16 +415,17 @@
           <EntitySet Name="Supplier" EntityType="Self.Supplier" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="TypeOfPayment" EntityType="Self.TypeOfPayment" />
-          <AssociationSet Name="FK_Order_Client" Association="Self.FK_Order_Client">
-            <End Role="Client" EntitySet="Client" />
-            <End Role="Order" EntitySet="Order" />
-          </AssociationSet>
+          <EntitySet Name="User" EntityType="Self.User" />
           <AssociationSet Name="FK_Delivery_DeliveryType" Association="Self.FK_Delivery_DeliveryType">
             <End Role="DeliveryType" EntitySet="DeliveryType" />
             <End Role="Delivery" EntitySet="Delivery" />
           </AssociationSet>
           <AssociationSet Name="FK_Order_Delivery" Association="Self.FK_Order_Delivery">
             <End Role="Delivery" EntitySet="Delivery" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Client" Association="Self.FK_Order_Client">
+            <End Role="User" EntitySet="User" />
             <End Role="Order" EntitySet="Order" />
           </AssociationSet>
           <AssociationSet Name="FK_Order_Product" Association="Self.FK_Order_Product">
@@ -450,24 +450,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище ModelContainer" CdmEntityContainer="Entities1">
-          <EntitySetMapping Name="Client">
-            <EntityTypeMapping TypeName="Model.Client">
-              <MappingFragment StoreEntitySet="Client">
-                <ScalarProperty Name="Role" ColumnName="Role" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Surname" ColumnName="Surname" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
-                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Login" ColumnName="Login" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
+        <EntityContainerMapping StorageEntityContainer="Хранилище MusicEntitesContainer" CdmEntityContainer="Entities2">
           <EntitySetMapping Name="Delivery">
-            <EntityTypeMapping TypeName="Model.Delivery">
+            <EntityTypeMapping TypeName="MusicEntites.Delivery">
               <MappingFragment StoreEntitySet="Delivery">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="ID_DeliveryType" ColumnName="ID_DeliveryType" />
@@ -477,7 +462,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DeliveryType">
-            <EntityTypeMapping TypeName="Model.DeliveryType">
+            <EntityTypeMapping TypeName="MusicEntites.DeliveryType">
               <MappingFragment StoreEntitySet="DeliveryType">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Type" ColumnName="Type" />
@@ -485,7 +470,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Order">
-            <EntityTypeMapping TypeName="Model.Order">
+            <EntityTypeMapping TypeName="MusicEntites.Order">
               <MappingFragment StoreEntitySet="Order">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Cost" ColumnName="Cost" />
@@ -498,7 +483,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Product">
-            <EntityTypeMapping TypeName="Model.Product">
+            <EntityTypeMapping TypeName="MusicEntites.Product">
               <MappingFragment StoreEntitySet="Product">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="ID_ProductType" ColumnName="ID_ProductType" />
@@ -511,7 +496,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ProductType">
-            <EntityTypeMapping TypeName="Model.ProductType">
+            <EntityTypeMapping TypeName="MusicEntites.ProductType">
               <MappingFragment StoreEntitySet="ProductType">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Type" ColumnName="Type" />
@@ -519,7 +504,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Supplier">
-            <EntityTypeMapping TypeName="Model.Supplier">
+            <EntityTypeMapping TypeName="MusicEntites.Supplier">
               <MappingFragment StoreEntitySet="Supplier">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -530,7 +515,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="Model.sysdiagrams">
+            <EntityTypeMapping TypeName="MusicEntites.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -541,10 +526,25 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TypeOfPayment">
-            <EntityTypeMapping TypeName="Model.TypeOfPayment">
+            <EntityTypeMapping TypeName="MusicEntites.TypeOfPayment">
               <MappingFragment StoreEntitySet="TypeOfPayment">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Type" ColumnName="Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="MusicEntites.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -20,9 +20,17 @@ namespace WpfApp_PR16.Pages
     /// </summary>
     public partial class Client : Page
     {
+
         public Client()
         {
             InitializeComponent();
         }
+
+        public string Login { get; internal set; }
+        public string Role { get; internal set; }
+        public string Surname { get; internal set; }
+        public string Patronymic { get; internal set; }
+        public string Password { get; internal set; }
+        public string Name { get; internal set; }
     }
 }

@@ -8,7 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Авторизация">
 
-    <Grid Background="#FFE0A9AF">
+    <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="34*"/>
             <ColumnDefinition Width="89*"/>
@@ -17,10 +17,10 @@
         <Label Content="Пароль" VerticalAlignment="Top" Margin="23,145,0,0" Grid.Column="1" Height="35" Width="116"/>
         <Label Content="Логин" VerticalAlignment="Top" Margin="23,80,0,0" RenderTransformOrigin="0.516,0.143" Grid.Column="1" Height="35" Width="116"/>
 
-        <TextBlock x:Name="txtpassword" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Пароль" Margin="22,153,0,0"  VerticalAlignment="Top" Width="125" Foreground="Gray" FontSize="16" Grid.Column="2" Height="21" />
-        <TextBlock x:Name="txtlogin" TextWrapping="Wrap" Text="Логин или почта" Margin="22,88,233,0"  VerticalAlignment="Top" Foreground="Gray" FontSize="16" Grid.Column="2" Height="21" />
+        <TextBlock x:Name="txtpassword" HorizontalAlignment="Left" Text="Пароль" Margin="22,153,0,0"  VerticalAlignment="Top" Width="125" FontSize="16" Grid.Column="2" Height="21" />
+        <TextBlock x:Name="txtlogin" Text="Логин или почта" Margin="22,88,233,0"  VerticalAlignment="Top"  FontSize="16" Grid.Column="2" Height="21" />
         
-        <TextBox x:Name="TextBoxLogin" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="175" Height="35" Margin="10,80,0,0"  TextChanged = "TextBoxLogin_Changed" Grid.Column="2" BorderBrush="DimGray" Foreground="Black">
+        <TextBox x:Name="TextBoxLogin" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="175"  Margin="10,80,0,0"  TextChanged = "TextBoxLogin_Changed" Grid.Column="2" BorderBrush="DimGray" Foreground="Black">
             <TextBox.ToolTip>
                 <ToolTip>
                     Введите логин
@@ -28,14 +28,14 @@
             </TextBox.ToolTip>
         </TextBox>
 
-        <PasswordBox x:Name="PasswordBox" HorizontalAlignment="Left" Margin="10,145,0,0" VerticalAlignment="Top" Width="175" Height="35"  Background="{x:Null}" Grid.Column="2" BorderBrush="Gray" PasswordChanged="PasswordBox_Changed">
+        <PasswordBox x:Name="PasswordBox" HorizontalAlignment="Left" Margin="10,145,0,0" Height="35" VerticalAlignment="Top" Width="175"  Background="{x:Null}" Grid.Column="2" BorderBrush="Gray" PasswordChanged="PasswordBox_Changed" >
             <PasswordBox.ToolTip>
                 <ToolTip>
                     Введите
                 </ToolTip>
             </PasswordBox.ToolTip>
         </PasswordBox>
-        <Button Content="Вход" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,206,0,0" Grid.Column="2" Background="#FFB5D5CA" Click="Button_Enter" >
+        <Button Content="Вход" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,206,0,0" Grid.Column="2" Click="Button_Enter" >
             <Button.ToolTip>
                 <ToolTip>
                     Нажмите на кнопку, чтобы авторизоваться
@@ -43,14 +43,12 @@
             </Button.ToolTip>
         </Button>
 
-        <Button Content="Регистрация" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,270,322,0" Grid.Column="2" Background="#FFB5D5CA" >
+        <Button Content="Регистрация" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,270,322,0" Grid.Column="2" Click="Button_Reg" >
             <Button.ToolTip>
                 <ToolTip>
                     Нажмите на кнопку, чтобы зарегистрироваться в приложении
                 </ToolTip>
             </Button.ToolTip>
         </Button>
-
-
     </Grid>
 </Page>

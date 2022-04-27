@@ -13,10 +13,10 @@ namespace WpfApp_PR16
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Entities1 : DbContext
+    public partial class Entities2 : DbContext
     {
-        public Entities1()
-            : base("name=Entities1")
+        public Entities2()
+            : base("name=Entities2")
         {
         }
     
@@ -25,7 +25,6 @@ namespace WpfApp_PR16
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Client> Client { get; set; }
         public virtual DbSet<Delivery> Delivery { get; set; }
         public virtual DbSet<DeliveryType> DeliveryType { get; set; }
         public virtual DbSet<Order> Order { get; set; }
@@ -34,5 +33,6 @@ namespace WpfApp_PR16
         public virtual DbSet<Supplier> Supplier { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<TypeOfPayment> TypeOfPayment { get; set; }
+        public virtual DbSet<User> User { get; set; }
     }
 }

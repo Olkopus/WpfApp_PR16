@@ -24,30 +24,49 @@
         <Setter Property="FontFamily" Value="Segoe UI"/>
         <Setter Property="FontSize" Value="11pt"/>
         <Setter  Property="BorderBrush" Value="Gray"/>
-        <Setter Property="Foreground" Value="{x:Null}"/>
+        <Setter Property="Foreground" Value="Black"/>
         <Setter Property="Background" Value="{x:Null}"/>
+        <Setter Property="Height" Value="35"/>
+        <Setter Property="TextWrapping" Value="Wrap"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+
     </Style>
 
-     
-     
+
+    <Style TargetType="ComboBox">
+        <Setter Property="Height" Value="35"/>
+        <Setter Property="FontFamily" Value="Segoe UI"/>
+        
+
+    </Style>
      
      
 
     <Style TargetType="TextBlock">
         <Setter Property="FontFamily" Value="Segoe UI"/>
         <Setter Property="FontSize" Value="16pt"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="Foreground" Value="Black"/>
+        
     </Style>
 
     <Style TargetType="Grid">
-        <Setter Property="Background" Value ="#FFB5D5CA"/>
+        <Setter Property="Background" Value="#FFB5D5CA"/>
 
     </Style>
 
 
     <Style TargetType="Frame">
-        <Setter Property="Background" Value ="#FFE0A9AF"/>
-
+        <Setter Property="Background" Value="#FFB5D5CA"/>
     </Style>
-     
+
+    <Style TargetType="PasswordBox">
+        <Setter Property="FontFamily" Value="Segoe UI"/>
+        <Setter Property="FontSize" Value="11pt"/>
+        <Setter  Property="BorderBrush" Value="Gray"/>
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="Background" Value="{x:Null}"/>
+        <Setter Property="Height" Value="35"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+    </Style>
 </ResourceDictionary>

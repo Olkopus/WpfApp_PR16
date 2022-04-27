@@ -22,8 +22,8 @@ namespace WpfApp_PR16
         public int ID_Product { get; set; }
         public int ID_TypeOfPayment { get; set; }
     
-        public virtual Client Client { get; set; }
         public virtual Delivery Delivery { get; set; }
+        public virtual User User { get; set; }
         public virtual Product Product { get; set; }
         public virtual TypeOfPayment TypeOfPayment { get; set; }
     }

@@ -17,7 +17,9 @@
         <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"  HorizontalAlignment="Left" Height="335" VerticalAlignment="Top" Width="792" Grid.Row="1" Background="#FFE0A9AF" Source="Pages/AuthPage.xaml" Navigated="MainFrame_OnNavigated"/>
         <Label x:Name="LabelDate" Content=""  VerticalAlignment="Top"  Grid.Row="2" Width="207" Margin="575,5,10,0" Height="37"  />
         <Button x:Name="ButtonBack" Content="Назад" HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="20,0,0,0" Click="Button_ClickBack"  />
-
+        <Button x:Name="ButtonGoCalc" Content="Калькулятор" HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="175,0,0,0" Click="ButtonGoCalc_Click"/>
+        <Button x:Name="ButtonExport" Content="Экспорт" HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="450,0,0,0" Click="ButtonExport_Click" Grid.RowSpan="2"  />
+        <Button x:Name="ButtonImport" Content="Импорт" HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="640,0,0,0" Click="ButtonImport_Click" Grid.RowSpan="2"  />
     </Grid>
 
 

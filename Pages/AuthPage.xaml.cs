@@ -52,9 +52,9 @@ namespace WpfApp_PR16.Pages
                 return;
             }
 
-            using (var db = new Entities1())
+            using (var db = new Entities2())
             {
-                var user = db.Client
+                var user = db.User
                     .AsNoTracking()
                     .FirstOrDefault(u => u.Login == TextBoxLogin.Text && u.Password == PasswordBox.Password);
                 if (user == null)
@@ -80,6 +80,15 @@ namespace WpfApp_PR16.Pages
 
 
         }
-    }
+
+        private void Button_Reg(object sender, RoutedEventArgs e)
+        {
+
+            NavigationService?.Navigate(new RegPage());
+        }
+
+
+
+        }
     
 }
