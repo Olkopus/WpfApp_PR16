@@ -1,0 +1,37 @@
+﻿<Page x:Class="WpfApp_PR16.Pages.SuppliersInfo"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfApp_PR16.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Сведения о поставщиках">
+
+    <Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="377*"/>
+                <RowDefinition Height="73*"/>
+            </Grid.RowDefinitions>
+            <DataGrid Grid.Row="0" Name="DataGridSuppliers" AutoGenerateColumns="False" IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Наименование" Binding="{Binding Name}" Width="155"/>
+                    <DataGridTextColumn Header="ИНН" Binding="{Binding INN}" Width="96"/>
+                    <DataGridTextColumn Header="Юр. Адрес" Binding="{Binding LegalAddres}" Width="180"/>
+                    <DataGridTextColumn Header="Расчётный счёт" Binding="{Binding SettlementAccount}" Width="164"/>
+                    <DataGridTemplateColumn Width="*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Name="ButtonEdit" Content="Редактировать" Click="ButtonEdit_Click"></Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Button Grid.Row="1" Name="ButtonAdd" Content="Добавить" HorizontalAlignment="Left" Click="ButtonAdd_Click"/>
+            <Button Grid.Row="1" Name="ButtonDel" Content="Удалить" HorizontalAlignment="Right" Click="ButtonDel_Click"/>
+        </Grid>
+
+    </Grid>
+</Page>

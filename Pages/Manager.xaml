@@ -9,6 +9,28 @@
       Title="Manager">
 
     <Grid>
-        
+        <Button x:Name="Button_Supplier" Content="Поставщики" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="340,90,0,0" Click="Button_Supplier_Click">
+            <Button.ToolTip>
+                <ToolTip>
+                    Нажмите на кнопку, чтобы просмотреть сведения о поставщиках.
+                </ToolTip>
+            </Button.ToolTip>
+        </Button>
+        <Button x:Name="Button_Order" Content="Заказы" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="340,160,0,0" Click="Button_Order_Click">
+        <Button.ToolTip>
+            <ToolTip>
+                Нажмите на кнопку, чтобы просмотреть сведения о заказах.
+            </ToolTip>
+        </Button.ToolTip>
+        </Button>
+        <Button x:Name="Button_Client" Content="Клиенты" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="340,230,0,0" Click="Button_Client_Click">
+            <Button.ToolTip>
+                <ToolTip>
+                    Нажмите на кнопку, чтобы просмотреть сведения о клиентах.
+                </ToolTip>
+            </Button.ToolTip>
+        </Button>
+
     </Grid>
 </Page>
+

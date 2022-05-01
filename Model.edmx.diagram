@@ -4,23 +4,22 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="b03f54ad0c7643f991fcedd092fa945c" Name="Diagram1">
-        <EntityTypeShape EntityType="MusicEntites.Delivery" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="MusicEntites.DeliveryType" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MusicEntites.Order" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="MusicEntites.Product" Width="1.5" PointX="3" PointY="7" IsExpanded="true" />
-        <EntityTypeShape EntityType="MusicEntites.ProductType" Width="1.5" PointX="0.75" PointY="6.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="MusicEntites.Supplier" Width="1.5" PointX="0.75" PointY="8.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="MusicEntites.sysdiagrams" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MusicEntites.TypeOfPayment" Width="1.5" PointX="3" PointY="11.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="MusicEntites.User" Width="1.5" PointX="3" PointY="13.875" IsExpanded="true" />
-        <AssociationConnector Association="MusicEntites.FK_Delivery_DeliveryType" ManuallyRouted="false" />
-        <AssociationConnector Association="MusicEntites.FK_Order_Delivery" ManuallyRouted="false" />
-        <AssociationConnector Association="MusicEntites.FK_Order_Client" ManuallyRouted="false" />
-        <AssociationConnector Association="MusicEntites.FK_Order_Product" ManuallyRouted="false" />
-        <AssociationConnector Association="MusicEntites.FK_Order_TypeOfPayment" ManuallyRouted="false" />
-        <AssociationConnector Association="MusicEntites.FK_Product_ProductType" ManuallyRouted="false" />
-        <AssociationConnector Association="MusicEntites.FK_Product_Supplier" ManuallyRouted="false" />
+      <Diagram DiagramId="ebd1bc24a5a248f5a438c350f559424d" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.Delivery" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DeliveryType" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Order" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Product" Width="1.5" PointX="3" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.ProductType" Width="1.5" PointX="0.75" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Supplier" Width="1.5" PointX="0.75" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.TypeOfPayment" Width="1.5" PointX="3" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.User" Width="1.5" PointX="3" PointY="13.875" IsExpanded="true" />
+        <AssociationConnector Association="Model.FK_Delivery_DeliveryType" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Order_Delivery" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Order_Client" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Order_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Order_TypeOfPayment" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Product_ProductType" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Product_Supplier" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

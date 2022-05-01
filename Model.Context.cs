@@ -19,7 +19,15 @@ namespace WpfApp_PR16
             : base("name=Entities2")
         {
         }
-    
+        private static Entities2 _context;
+        public static Entities2 GetContext()
+        {
+            if (_context == null)
+                _context = new Entities2();
+            return _context;
+        }
+
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
@@ -31,7 +39,6 @@ namespace WpfApp_PR16
         public virtual DbSet<Product> Product { get; set; }
         public virtual DbSet<ProductType> ProductType { get; set; }
         public virtual DbSet<Supplier> Supplier { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<TypeOfPayment> TypeOfPayment { get; set; }
         public virtual DbSet<User> User { get; set; }
     }

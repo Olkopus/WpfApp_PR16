@@ -16,28 +16,30 @@ using System.Windows.Shapes;
 namespace WpfApp_PR16.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для Manager.xaml
+    /// Логика взаимодействия для SuppliersInfo.xaml
     /// </summary>
-    public partial class Manager : Page
+    public partial class SuppliersInfo : Page
     {
-        public Manager()
+        public SuppliersInfo()
         {
             InitializeComponent();
+            DataGridSuppliers.ItemsSource = Entities2.GetContext().Supplier.ToList();
+            
         }
 
-        private void Button_Supplier_Click(object sender, RoutedEventArgs e)
+        private void ButtonEdit_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService?.Navigate(new SuppliersInfo());
+
         }
 
-        private void Button_Order_Click(object sender, RoutedEventArgs e)
+        private void ButtonAdd_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService?.Navigate(new OrdersInfo());
+            NavigationService?.Navigate(new AddSupplier());
         }
 
-        private void Button_Client_Click(object sender, RoutedEventArgs e)
+        private void ButtonDel_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService?.Navigate(new ClientsInfo());
+
         }
     }
 }
