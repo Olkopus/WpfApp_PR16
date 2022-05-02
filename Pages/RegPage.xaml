@@ -8,17 +8,17 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Регистрация">
 
-    <Grid Background="#FFE0A9AF">
-        <Label Content="Введите логин" VerticalAlignment="Top" Margin="135,15,0,0" RenderTransformOrigin="0.516,0.143" Height="35" Width="225"/>
-        <Label Content="Введите пароль" VerticalAlignment="Top" Margin="135,65,0,0" RenderTransformOrigin="0.516,0.143" Height="45" Width="225"/>
-        <Label Content="Подтвердите пароль" VerticalAlignment="Top" Margin="135,115,0,0" RenderTransformOrigin="0.516,0.143" Height="50" Width="225"/>
-        <Label Content="Выберите роль" VerticalAlignment="Top" Margin="135,165,0,0" RenderTransformOrigin="0.516,0.143" Height="45" Width="225"/>
-        <Label Content="Введите ФИО" VerticalAlignment="Top" Margin="135,215,0,0" RenderTransformOrigin="0.516,0.143" Height="45" Width="225"/>
+    <Grid >
+        <Label Content="Введите логин" VerticalAlignment="Top" Margin="145,15,430,0" RenderTransformOrigin="0.516,0.143" Height="35" Width="225"/>
+        <Label Content="Введите пароль" VerticalAlignment="Top" Margin="145,65,430,0" RenderTransformOrigin="0.516,0.143" Height="45" Width="225"/>
+        <Label Content="Подтвердите пароль" VerticalAlignment="Top" Margin="145,110,430,0" RenderTransformOrigin="0.516,0.143" Height="50" Width="225"/>
+        <Label Content="Выберите роль" VerticalAlignment="Top" Margin="145,165,430,0" RenderTransformOrigin="0.516,0.143" Height="45" Width="225"/>
+        <Label Content="Введите ФИО" VerticalAlignment="Top" Margin="145,210,430,0" RenderTransformOrigin="0.516,0.143" Height="45" Width="225"/>
 
-        <TextBlock x:Name="txtlogin" Text="Логин" Margin="380,20,0,0"  VerticalAlignment="Top" Width="125" Foreground="Gray" FontSize="16" Height="21" />
-        <TextBlock x:Name="txtpassword" Text="Пароль" Margin="380,70,0,0"  VerticalAlignment="Top" Width="125" Foreground="Gray" FontSize="16" Height="21" />
-        <TextBlock x:Name="txtrepeatpassword" Text="Подтверждение пароля" Margin="380,120,0,0"  VerticalAlignment="Top" Width="190" Foreground="Gray" FontSize="16" Height="21" />
-        <TextBlock x:Name="txtfio" Text="ФИО" Margin="380,219,0,0"  VerticalAlignment="Top" Width="125" Foreground="Gray" FontSize="16" Height="21" />
+        <TextBlock x:Name="txtlogin" Text="Логин" Margin="365,20,225,399.6"  VerticalAlignment="Center" Width="210" Foreground="Gray" FontSize="16" Height="30" />
+        <TextBlock x:Name="txtpassword" Text="Пароль" Margin="375,69,215,0"  VerticalAlignment="Top" Width="210" Foreground="Gray" FontSize="16" Height="31" />
+        <TextBlock x:Name="txtrepeatpassword" Text="Подтверждение пароля" Margin="370,120,220,0"  VerticalAlignment="Top" Width="210" Foreground="Gray" FontSize="16" Height="21" />
+        <TextBlock x:Name="txtfio" Text="ФИО" Margin="370,220,220,0"  VerticalAlignment="Top" Width="210" Foreground="Gray" FontSize="16" Height="21" />
 
         <TextBox x:Name="TextBoxLogin" HorizontalAlignment="Left" VerticalAlignment="Top" Width="210" Margin="370,15,0,0" TextChanged="TextBoxLogin_Changed">
             <TextBox.ToolTip>
@@ -60,14 +60,14 @@
             </ComboBox.ToolTip>
         </ComboBox>
 
-        <Button x:Name="Button_Cancel" Content="Отмена" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="140,266,0,0" Background="#FFB5D5CA" Height ="39" Width="140" Click="Button_Cancel_Click">
+        <Button x:Name="Button_Cancel" Content="Отмена" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="140,266,0,0"  Height ="39" Width="140" Click="Button_Cancel_Click">
             <Button.ToolTip>
                 <ToolTip>
                     Нажмите на кнопку, чтобы вернуться на страницу авторизации
                 </ToolTip>
             </Button.ToolTip>
         </Button>
-        <Button x:Name="Button_Reg" Content="Регистрация" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="400,266,0,0" Background="#FFB5D5CA" Height ="39" Width="140" Click="Button_Reg_Click">
+        <Button x:Name="Button_Reg" Content="Регистрация" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="400,266,0,0" Height ="39" Width="140" Click="Button_Reg_Click">
             <Button.ToolTip>
                 <ToolTip>
                     Нажмите на кнопку, чтобы зарегистрироваться

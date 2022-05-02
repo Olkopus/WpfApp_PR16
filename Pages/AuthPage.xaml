@@ -17,10 +17,10 @@
         <Label Content="Пароль" VerticalAlignment="Top" Margin="23,145,0,0" Grid.Column="1" Height="35" Width="116"/>
         <Label Content="Логин" VerticalAlignment="Top" Margin="23,80,0,0" RenderTransformOrigin="0.516,0.143" Grid.Column="1" Height="35" Width="116"/>
 
-        <TextBlock x:Name="txtpassword" Text="Пароль" Margin="12,145,290,0"  VerticalAlignment="Top"   Width="170" FontSize="16" Grid.Column="2" Height="35"/>
-        <TextBlock x:Name="txtlogin" Text="Логин или почта" Margin="12,88,290,0"  VerticalAlignment="Top" FontSize="16" Grid.Column="2" Height="21" Width="170" />
+        <TextBlock x:Name="txtpassword" Text="Пароль" Margin="12,145,290,0"  VerticalAlignment="Top"   Width="170" FontSize="16" Grid.Column="2" Height="35" Foreground="Gray"/>
+        <TextBlock x:Name="txtlogin" Text="Логин или почта" Margin="12,88,290,0"  VerticalAlignment="Top" FontSize="16" Grid.Column="2" Height="21" Width="170" Foreground="Gray"/>
 
-        <TextBox x:Name="TextBoxLogin" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="175"  Margin="10,80,0,0"  TextChanged = "TextBoxLogin_Changed" Grid.Column="2" BorderBrush="DimGray" Foreground="Black">
+        <TextBox x:Name="TextBoxLogin" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="175"  Margin="10,80,0,0"  TextChanged = "TextBoxLogin_Changed" Grid.Column="2" >
             <TextBox.ToolTip>
                 <ToolTip>
                     Введите логин
@@ -28,7 +28,7 @@
             </TextBox.ToolTip>
         </TextBox>
 
-        <PasswordBox x:Name="PasswordBox" HorizontalAlignment="Left" Margin="10,145,0,0" Height="35" VerticalAlignment="Top" Width="175"  Background="{x:Null}" Grid.Column="2" BorderBrush="Gray" PasswordChanged="PasswordBox_Changed" >
+        <PasswordBox x:Name="PasswordBox" HorizontalAlignment="Left" Margin="10,145,0,0" Height="35" VerticalAlignment="Top" Width="175"  Background="{x:Null}" Grid.Column="2" PasswordChanged="PasswordBox_Changed" >
             <PasswordBox.ToolTip>
                 <ToolTip>
                     Введите

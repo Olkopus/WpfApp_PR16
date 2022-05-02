@@ -60,10 +60,10 @@
 
         <Button Name="ButtonSave" Content="Сохранить" Grid.Row="7" Grid.ColumnSpan="2" Click="ButtonSave_Click"/>
         <Label Content="" Grid.Column="1" Grid.Row="1"/>
-        <TextBlock x:Name="txtname"  Grid.Column =" 1" Grid.Row ="1" Text="Введите наименование" />
-        <TextBlock x:Name="txtinn"  Grid.Column =" 1" Grid.Row ="2" Text="Введите ИНН"/>
-        <TextBlock x:Name="txtaddres"  Grid.Column =" 1" Grid.Row ="3" Text="Введите Юр.Адрес" />
-        <TextBlock x:Name="txtaccount"  Grid.Column =" 1" Grid.Row ="4" Text="Введите Расчётный счёт" />
+        <TextBlock x:Name="txtname"  Grid.Column =" 1" Grid.Row ="1" Text="Введите наименование" Foreground="Gray"  />
+        <TextBlock x:Name="txtinn"  Grid.Column =" 1" Grid.Row ="2" Text="Введите ИНН" Foreground="Gray"/>
+        <TextBlock x:Name="txtaddres"  Grid.Column =" 1" Grid.Row ="3" Text="Введите Юр.Адрес" Foreground="Gray" />
+        <TextBlock x:Name="txtaccount"  Grid.Column =" 1" Grid.Row ="4" Text="Введите Расчётный счёт" Foreground="Gray"/>
     </Grid>
 </Page>
 

@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:WpfApp_PR16.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Manager">
+      Title="Mенеджер">
 
     <Grid>
         <Button x:Name="Button_Supplier" Content="Поставщики" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="340,90,0,0" Click="Button_Supplier_Click">

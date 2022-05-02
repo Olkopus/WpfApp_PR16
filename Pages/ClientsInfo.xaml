@@ -6,9 +6,36 @@
       xmlns:local="clr-namespace:WpfApp_PR16.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="ClientsInfo">
+      Title="Сведения о клиентах">
 
     <Grid>
-        
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="377*"/>
+                <RowDefinition Height="73*"/>
+            </Grid.RowDefinitions>
+            <DataGrid Grid.Row="0" Name="DataGridClients" AutoGenerateColumns="False" IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Фамилия" Binding="{Binding Surname}" Width="105"/>
+                    <DataGridTextColumn Header="Имя" Binding="{Binding Name}" Width="55"/>
+                    <DataGridTextColumn Header="Отчество" Binding="{Binding Patronymic}" Width="105"/>
+                    <DataGridTextColumn Header="Логин" Binding="{Binding Login}" Width="120"/>
+                    <DataGridTextColumn Header="Пароль" Binding="{Binding Password}" Width="85"/>
+                    <DataGridTextColumn Header="Телефон" Binding="{Binding PhoneNumber}" Width="100"/>
+                    <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="70"/>
+                    
+                    <DataGridTemplateColumn Width="*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Name="ButtonEdit" Content="Редактировать" Click="ButtonEdit_Click"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Button Grid.Row="1" Name="ButtonAdd" Content="Добавить" HorizontalAlignment="Left" Click="ButtonAdd_Click"/>
+            <Button Grid.Row="1" Name="ButtonDel" Content="Удалить" HorizontalAlignment="Right" Click="ButtonDel_Click"/>
+        </Grid>
+
     </Grid>
 </Page>

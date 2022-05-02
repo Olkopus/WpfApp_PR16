@@ -23,6 +23,22 @@ namespace WpfApp_PR16.Pages
         public ClientsInfo()
         {
             InitializeComponent();
+            DataGridClients.ItemsSource = Entities2.GetContext().User.ToList();
+        }
+
+        private void ButtonAdd_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService?.Navigate(new AddClient());
+        }
+
+        private void ButtonDel_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButtonEdit_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
