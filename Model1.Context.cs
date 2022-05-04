@@ -13,21 +13,21 @@ namespace WpfApp_PR16
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Entities2 : DbContext
+    public partial class Entities : DbContext
     {
-        public Entities2()
-            : base("name=Entities2")
-        {
-        }
-        private static Entities2 _context;
-        public static Entities2 GetContext()
+        private static Entities _context;
+public static Entities GetContext()
         {
             if (_context == null)
-                _context = new Entities2();
+                _context = new Entities();
             return _context;
         }
 
-
+        public Entities()
+            : base("name=Entities")
+        {
+        }
+    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();

@@ -52,7 +52,7 @@ namespace WpfApp_PR16.Pages
                 return;
             }
 
-            using (var db = new Entities2())
+            using (var db = new Entities())
             {
                 var user = db.User
                     .AsNoTracking()

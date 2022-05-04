@@ -92,7 +92,7 @@ namespace WpfApp_PR16.Pages
 
             
 
-            using (var dbb = new Entities2())
+            using (var dbb = new Entities())
             {
                 var user = dbb.User
                     .AsNoTracking()

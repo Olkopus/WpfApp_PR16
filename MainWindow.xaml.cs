@@ -107,7 +107,7 @@ namespace WpfApp_PR16
 
 
                 StreamWriter sw = new StreamWriter(path);
-                using (Entities2 db = new Entities2())
+                using (Entities db = new Entities())
                 {
                     string IDline = String.Join(":", db.User.Select(x => x.ID));
                     sw.Write(":");

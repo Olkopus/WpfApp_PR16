@@ -29,28 +29,28 @@
         <TextBlock Text="Расчётный Счёт" Grid.Row="4" Grid.Column="0" Margin="10,0,0,0"/>
       
      
-        <TextBox x:Name="TextBoxName" Grid.Row="1" Grid.Column="1" Width="415" HorizontalAlignment="Center" TextChanged="TextBoxName_TextChanged">
+        <TextBox x:Name="TextBoxName" Grid.Row="1" Grid.Column="1" Width="415" HorizontalAlignment="Center" TextChanged="TextBoxName_TextChanged" Text="{Binding Name}">
             <TextBox.ToolTip>
                 <ToolTip>
                     Введите наименование поставщика.
                 </ToolTip>
             </TextBox.ToolTip>
          </TextBox>
-        <TextBox x:Name="TextBoxINN" Grid.Row="2" Grid.Column="1" Width="415" HorizontalAlignment="Center" TextChanged="TextBoxINN_TextChanged">
+        <TextBox x:Name="TextBoxINN" Grid.Row="2" Grid.Column="1" Width="415" HorizontalAlignment="Center" TextChanged="TextBoxINN_TextChanged" Text="{Binding INN}">
             <TextBox.ToolTip>
                 <ToolTip>
                     Введите ИНН поставщика.
                 </ToolTip>
             </TextBox.ToolTip>
         </TextBox>
-        <TextBox x:Name="TextBoxAdress" Grid.Row="3" Grid.Column="1" Width="415" HorizontalAlignment="Center" TextChanged="TextBoxAdress_TextChanged">
+        <TextBox x:Name="TextBoxAdress" Grid.Row="3" Grid.Column="1" Width="415" HorizontalAlignment="Center" TextChanged="TextBoxAdress_TextChanged" Text="{Binding LegalAddres}">
             <TextBox.ToolTip>
                 <ToolTip>
                     Введите Юридический Адрес поставщика.
                 </ToolTip>
             </TextBox.ToolTip>
         </TextBox>
-        <TextBox x:Name="TextBoxAccount" Grid.Row="4" Grid.Column="1" Width="415" HorizontalAlignment="Center" TextChanged="TextBoxAccount_TextChanged">
+        <TextBox x:Name="TextBoxAccount" Grid.Row="4" Grid.Column="1" Width="415" HorizontalAlignment="Center" TextChanged="TextBoxAccount_TextChanged" Text="{Binding SettlementAccount}">
             <TextBox.ToolTip>
                 <ToolTip>
                     Введите номер расчётного счёта поставщика.

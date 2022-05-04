@@ -16,41 +16,40 @@ using System.Windows.Shapes;
 namespace WpfApp_PR16.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для SuppliersInfo.xaml
+    /// Логика взаимодействия для DeliveryTypeInfo.xaml
     /// </summary>
-    public partial class SuppliersInfo : Page
+    public partial class DeliveryTypeInfo : Page
     {
-        public SuppliersInfo()
+        public DeliveryTypeInfo()
         {
             InitializeComponent();
-            DataGridSuppliers.ItemsSource = Entities.GetContext().Supplier.ToList();
-            
+            DataGridDelivery.ItemsSource = Entities.GetContext().DeliveryType.ToList();
         }
 
         private void ButtonEdit_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Pages.AddSupplier((sender as Button).DataContext as Supplier));
+            NavigationService.Navigate(new Pages.AddDeliveryType((sender as Button).DataContext as DeliveryType));
         }
 
         private void ButtonAdd_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService?.Navigate(new AddSupplier(null));
+            NavigationService?.Navigate(new AddDeliveryType(null));
         }
 
         private void ButtonDel_Click(object sender, RoutedEventArgs e)
         {
-            var SuppliersForRemoving = DataGridSuppliers.SelectedItems.Cast<Supplier>().ToList();
+            var DeliveryForRemoving = DataGridDelivery.SelectedItems.Cast<DeliveryType>().ToList();
 
-            if (MessageBox.Show($"Вы точно хотите удалить записи в количестве {SuppliersForRemoving.Count()} элементов?", "Внимание",
+            if (MessageBox.Show($"Вы точно хотите удалить записи в количестве {DeliveryForRemoving.Count()} элементов?", "Внимание",
                             MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
                 try
                 {
-                    Entities.GetContext().Supplier.RemoveRange(SuppliersForRemoving);
+                    Entities.GetContext().DeliveryType.RemoveRange(DeliveryForRemoving);
                     Entities.GetContext().SaveChanges();
                     MessageBox.Show("Данные успешно удалены!");
 
-                    DataGridSuppliers.ItemsSource = Entities.GetContext().Supplier.ToList();
+                    DataGridDelivery.ItemsSource = Entities.GetContext().DeliveryType.ToList();
                 }
                 catch (Exception ex)
                 {
@@ -60,12 +59,12 @@ namespace WpfApp_PR16.Pages
             }
         }
 
-        private void DataGridSuppliers_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        private void DataGridDelivery_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             if (Visibility == Visibility.Visible)
             {
                 Entities.GetContext().ChangeTracker.Entries().ToList().ForEach(x => x.Reload());
-                DataGridSuppliers.ItemsSource = Entities.GetContext().Supplier.ToList();
+                DataGridDelivery.ItemsSource = Entities.GetContext().DeliveryType.ToList();
             }
         }
     }

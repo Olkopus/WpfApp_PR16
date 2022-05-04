@@ -23,22 +23,51 @@ namespace WpfApp_PR16.Pages
         public ClientsInfo()
         {
             InitializeComponent();
-            DataGridClients.ItemsSource = Entities2.GetContext().User.ToList();
+            DataGridClients.ItemsSource = Entities.GetContext().User.ToList();
         }
 
         private void ButtonAdd_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService?.Navigate(new AddClient());
+            NavigationService?.Navigate(new AddClient(null));
         }
 
         private void ButtonDel_Click(object sender, RoutedEventArgs e)
         {
+            var ClientsForRemoving = DataGridClients.SelectedItems.Cast<User>().ToList();
+
+            if (MessageBox.Show($"Вы точно хотите удалить записи в количестве {ClientsForRemoving.Count()} элементов?", "Внимание",
+                            MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes);
+            {
+                try
+                {
+                    Entities.GetContext().User.RemoveRange(ClientsForRemoving);
+                    Entities.GetContext().SaveChanges();
+                    MessageBox.Show("Данные успешно удалены!");
+
+                    DataGridClients.ItemsSource = Entities.GetContext().User.ToList();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString());
+                }
+
+            }
 
         }
 
         private void ButtonEdit_Click(object sender, RoutedEventArgs e)
         {
+            NavigationService.Navigate(new Pages.AddClient((sender as Button).DataContext as User));
+        }
 
+
+        private void DataGridClients_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (Visibility == Visibility.Visible)
+            {
+                Entities.GetContext().ChangeTracker.Entries().ToList().ForEach(x => x.Reload());
+                DataGridClients.ItemsSource = Entities.GetContext().User.ToList();
+            }
         }
     }
 }

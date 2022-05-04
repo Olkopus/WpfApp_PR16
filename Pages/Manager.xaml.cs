@@ -30,14 +30,16 @@ namespace WpfApp_PR16.Pages
             NavigationService?.Navigate(new SuppliersInfo());
         }
 
-        private void Button_Order_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService?.Navigate(new OrdersInfo());
-        }
+ 
 
         private void Button_Client_Click(object sender, RoutedEventArgs e)
         {
             NavigationService?.Navigate(new ClientsInfo());
+        }
+
+        private void Button_DeliveryOrder_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService?.Navigate(new DeliveryTypeInfo());
         }
     }
 }

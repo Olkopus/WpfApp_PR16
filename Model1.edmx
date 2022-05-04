@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище VoynalovichModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Delivery">
           <Key>
             <PropertyRef Name="ID" />
@@ -77,10 +77,10 @@
           <Property Name="Surname" Type="nvarchar" MaxLength="40" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
           <Property Name="Patronymic" Type="nvarchar" MaxLength="40" />
-          <Property Name="PhoneNumber" Type="nvarchar" MaxLength="11" />
+          <Property Name="PhoneNumber" Type="nvarchar" MaxLength="11" Nullable="false" />
           <Property Name="Email" Type="nvarchar" MaxLength="50" />
           <Property Name="Login" Type="nvarchar" MaxLength="35" Nullable="false" />
-          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="35" Nullable="false" />
           <Property Name="Role" Type="nvarchar" MaxLength="35" />
         </EntityType>
         <Association Name="FK_Delivery_DeliveryType">
@@ -167,7 +167,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Хранилище ModelContainer">
+        <EntityContainer Name="Хранилище VoynalovichModelContainer">
           <EntitySet Name="Delivery" EntityType="Self.Delivery" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DeliveryType" EntityType="Self.DeliveryType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
@@ -209,7 +209,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="VoynalovichModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Delivery">
           <Key>
             <PropertyRef Name="ID" />
@@ -295,10 +295,10 @@
           <Property Name="Surname" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Patronymic" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
-          <Property Name="PhoneNumber" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Login" Type="String" MaxLength="35" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="35" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Role" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Order" Relationship="Self.FK_Order_Client" FromRole="User" ToRole="Order" />
         </EntityType>
@@ -386,7 +386,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Entities2" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Delivery" EntityType="Self.Delivery" />
           <EntitySet Name="DeliveryType" EntityType="Self.DeliveryType" />
           <EntitySet Name="Order" EntityType="Self.Order" />
@@ -429,9 +429,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище ModelContainer" CdmEntityContainer="Entities2">
+        <EntityContainerMapping StorageEntityContainer="Хранилище VoynalovichModelContainer" CdmEntityContainer="Entities">
           <EntitySetMapping Name="Delivery">
-            <EntityTypeMapping TypeName="Model.Delivery">
+            <EntityTypeMapping TypeName="VoynalovichModel.Delivery">
               <MappingFragment StoreEntitySet="Delivery">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="ID_DeliveryType" ColumnName="ID_DeliveryType" />
@@ -441,7 +441,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DeliveryType">
-            <EntityTypeMapping TypeName="Model.DeliveryType">
+            <EntityTypeMapping TypeName="VoynalovichModel.DeliveryType">
               <MappingFragment StoreEntitySet="DeliveryType">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Type" ColumnName="Type" />
@@ -449,7 +449,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Order">
-            <EntityTypeMapping TypeName="Model.Order">
+            <EntityTypeMapping TypeName="VoynalovichModel.Order">
               <MappingFragment StoreEntitySet="Order">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Cost" ColumnName="Cost" />
@@ -462,7 +462,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Product">
-            <EntityTypeMapping TypeName="Model.Product">
+            <EntityTypeMapping TypeName="VoynalovichModel.Product">
               <MappingFragment StoreEntitySet="Product">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="ID_ProductType" ColumnName="ID_ProductType" />
@@ -475,7 +475,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ProductType">
-            <EntityTypeMapping TypeName="Model.ProductType">
+            <EntityTypeMapping TypeName="VoynalovichModel.ProductType">
               <MappingFragment StoreEntitySet="ProductType">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Type" ColumnName="Type" />
@@ -483,7 +483,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Supplier">
-            <EntityTypeMapping TypeName="Model.Supplier">
+            <EntityTypeMapping TypeName="VoynalovichModel.Supplier">
               <MappingFragment StoreEntitySet="Supplier">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -494,7 +494,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TypeOfPayment">
-            <EntityTypeMapping TypeName="Model.TypeOfPayment">
+            <EntityTypeMapping TypeName="VoynalovichModel.TypeOfPayment">
               <MappingFragment StoreEntitySet="TypeOfPayment">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Type" ColumnName="Type" />
@@ -502,7 +502,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="User">
-            <EntityTypeMapping TypeName="Model.User">
+            <EntityTypeMapping TypeName="VoynalovichModel.User">
               <MappingFragment StoreEntitySet="User">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Surname" ColumnName="Surname" />

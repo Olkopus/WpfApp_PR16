@@ -25,10 +25,10 @@ namespace WpfApp_PR16.Pages
         public AddOrder()
         {
             InitializeComponent();
-            ComboBoxProduct.ItemsSource = Entities2.GetContext().Product.ToList();
-            ComboBoxSurname.ItemsSource = Entities2.GetContext().User.ToList();
-            ComboBoxTypeOfPayment.ItemsSource = Entities2.GetContext().TypeOfPayment.ToList();
-            ComboBoxDeliveryType.ItemsSource = Entities2.GetContext().DeliveryType.ToList();
+            ComboBoxProduct.ItemsSource = Entities.GetContext().Product.ToList();
+            ComboBoxSurname.ItemsSource = Entities.GetContext().User.ToList();
+            ComboBoxTypeOfPayment.ItemsSource = Entities.GetContext().TypeOfPayment.ToList();
+            ComboBoxDeliveryType.ItemsSource = Entities.GetContext().DeliveryType.ToList();
 
         }
 

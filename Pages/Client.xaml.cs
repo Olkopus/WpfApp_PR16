@@ -32,5 +32,7 @@ namespace WpfApp_PR16.Pages
         public string Patronymic { get; internal set; }
         public string Password { get; internal set; }
         public string Name { get; internal set; }
+        public string PhoneNumber { get; internal set; }
+        public int ID { get; internal set; }
     }
 }

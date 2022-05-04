@@ -14,7 +14,7 @@
                 <RowDefinition Height="377*"/>
                 <RowDefinition Height="73*"/>
             </Grid.RowDefinitions>
-            <DataGrid Grid.Row="0" Name="DataGridClients" AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid Grid.Row="0" Name="DataGridClients" AutoGenerateColumns="False" IsReadOnly="True" IsVisibleChanged="DataGridClients_IsVisibleChanged">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Фамилия" Binding="{Binding Surname}" Width="105"/>
                     <DataGridTextColumn Header="Имя" Binding="{Binding Name}" Width="55"/>

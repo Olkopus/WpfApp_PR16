@@ -20,14 +20,49 @@ namespace WpfApp_PR16.Pages
     /// </summary>
     public partial class AddSupplier : Page
     {
-        public AddSupplier()
+
+        private Supplier _supplier = new Supplier();
+
+        public AddSupplier(Supplier selectedsupplier)
         {
             InitializeComponent();
+            if (selectedsupplier != null)
+            {
+                _supplier = selectedsupplier;
+            }
+            DataContext = _supplier;
         }
 
         private void ButtonSave_Click(object sender, RoutedEventArgs e)
         {
+            StringBuilder errors = new StringBuilder();
+            if (string.IsNullOrWhiteSpace(_supplier.Name))
+                errors.AppendLine("Укажите наименование!");
+            if (string.IsNullOrWhiteSpace(_supplier.INN))
+                errors.AppendLine("Укажите ИНН!");
+            if (string.IsNullOrWhiteSpace(_supplier.LegalAddres))
+                errors.AppendLine("Укажите Юридический адрес!");
+            if (string.IsNullOrWhiteSpace(_supplier.SettlementAccount))
+                errors.AppendLine("Укажите расчётный счёт!");
 
+
+            if (errors.Length > 0)
+            {
+                MessageBox.Show(errors.ToString());
+                return;
+            }
+
+            if (_supplier.ID == 0)
+                Entities.GetContext().Supplier.Add(_supplier);
+            try
+            {
+                Entities.GetContext().SaveChanges();
+                MessageBox.Show("Данные успешно сохранены!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
         }
 
         private void TextBoxName_TextChanged(object sender, TextChangedEventArgs e)

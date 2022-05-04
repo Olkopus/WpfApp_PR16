@@ -14,7 +14,7 @@
                 <RowDefinition Height="377*"/>
                 <RowDefinition Height="73*"/>
             </Grid.RowDefinitions>
-            <DataGrid Grid.Row="0" Name="DataGridSuppliers" AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid Grid.Row="0" Name="DataGridSuppliers" AutoGenerateColumns="False" IsReadOnly="True" IsVisibleChanged="DataGridSuppliers_IsVisibleChanged">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Наименование" Binding="{Binding Name}" Width="155"/>
                     <DataGridTextColumn Header="ИНН" Binding="{Binding INN}" Width="96"/>

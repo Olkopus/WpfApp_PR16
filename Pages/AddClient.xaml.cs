@@ -20,9 +20,18 @@ namespace WpfApp_PR16.Pages
     /// </summary>
     public partial class AddClient : Page
     {
-        public AddClient()
+        private User _user = new User();
+
+        public AddClient(User selecteduser)
         {
             InitializeComponent();
+            if(selecteduser != null)
+            {
+                _user = selecteduser;
+            }
+            DataContext = _user;
+           
+
         }
 
         private void TextBoxSurname_TextChanged(object sender, TextChangedEventArgs e)
@@ -90,7 +99,42 @@ namespace WpfApp_PR16.Pages
 
         private void ButtonSave_Click(object sender, RoutedEventArgs e)
         {
-            
+            StringBuilder errors = new StringBuilder();
+            if (string.IsNullOrWhiteSpace(_user.Surname))
+                errors.AppendLine("Укажите фамилию!");
+            if (string.IsNullOrWhiteSpace(_user.Name))
+                errors.AppendLine("Укажите имя!");
+            if (string.IsNullOrWhiteSpace(_user.Login))
+                errors.AppendLine("Укажите логин!");
+            if (string.IsNullOrWhiteSpace(_user.Password))
+                errors.AppendLine("Укажите пароль!");
+            if (string.IsNullOrWhiteSpace(_user.PhoneNumber))
+                errors.AppendLine("Укажите почту!");
+            if (string.IsNullOrWhiteSpace(_user.PhoneNumber))
+                errors.AppendLine("Укажите номер телефона!");
+
+            if (errors.Length > 0)
+            {
+                MessageBox.Show(errors.ToString());
+                return;
+            }
+
+            if (_user.ID == 0)
+                Entities.GetContext().User.Add(_user);
+            try
+            {
+                Entities.GetContext().SaveChanges();
+                MessageBox.Show("Данные успешно сохранены!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+
+           
+
+
         }
+       
     }
 }

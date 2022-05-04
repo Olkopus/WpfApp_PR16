@@ -20,6 +20,7 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"/>
@@ -33,37 +34,38 @@
             <TextBlock Text="Пароль" Grid.Row="4" Grid.Column="0" Margin="10,0,0,0"/>
             <TextBlock Text="Номер телефона" Grid.Row="5" Grid.Column="0" Margin="10,0,0,0"/>
             <TextBlock Text="Emai" Grid.Row="6" Grid.Column="0" Margin="10,0,0,0"/>
+        <TextBlock Text="Роль" Grid.Row="7" Grid.Column="0" Margin="10,0,0,0"/>
 
 
-        <TextBox x:Name="TextBoxSurname" Grid.Row="0" Grid.Column="1" Width="415" HorizontalAlignment="Center" TextChanged="TextBoxSurname_TextChanged">
+        <TextBox x:Name="TextBoxSurname" Text ="{Binding Surname}" Grid.Row="0" Grid.Column="1" Width="415" HorizontalAlignment="Center" TextChanged="TextBoxSurname_TextChanged">
                 <TextBox.ToolTip>
                     <ToolTip>
                         Введите фамилию клиента.
                     </ToolTip>
                 </TextBox.ToolTip>
             </TextBox>
-            <TextBox x:Name="TextBoxName" Grid.Row="1" Grid.Column="1" Width="415" HorizontalAlignment="Center" TextChanged="TextBoxName_TextChanged">
+            <TextBox x:Name="TextBoxName" Text="{Binding Name}" Grid.Row="1" Grid.Column="1" Width="415" HorizontalAlignment="Center" TextChanged="TextBoxName_TextChanged">
                 <TextBox.ToolTip>
                     <ToolTip>
                         Введите имя клиента.
                     </ToolTip>
                 </TextBox.ToolTip>
             </TextBox>
-            <TextBox x:Name="TextBoxPatronymic" Grid.Row="2" Grid.Column="1" Width="415" HorizontalAlignment="Center" TextChanged="TextBoxPatronymic_TextChanged">
+            <TextBox x:Name="TextBoxPatronymic" Text="{Binding Patronymic}" Grid.Row="2" Grid.Column="1" Width="415" HorizontalAlignment="Center" TextChanged="TextBoxPatronymic_TextChanged">
                 <TextBox.ToolTip>
                     <ToolTip>
                         Введите отчество клиента.
                     </ToolTip>
                 </TextBox.ToolTip>
             </TextBox>
-            <TextBox x:Name="TextBoxLogin" Grid.Row="3" Grid.Column="1" Width="415" HorizontalAlignment="Center" TextChanged="TextBoxLogin_TextChanged">
+            <TextBox x:Name="TextBoxLogin" Text="{Binding Login}" Grid.Row="3" Grid.Column="1" Width="415" HorizontalAlignment="Center" TextChanged="TextBoxLogin_TextChanged">
                 <TextBox.ToolTip>
                     <ToolTip>
                         Введите логин клиента.
                     </ToolTip>
                 </TextBox.ToolTip>
             </TextBox>
-        <TextBox x:Name="TextBoxPassword" Grid.Row="4" Grid.Column="1" Width="415" HorizontalAlignment="Center" TextChanged="TextBoxPassword_TextChanged">
+        <TextBox x:Name="TextBoxPassword" Text="{Binding Password}" Grid.Row="4" Grid.Column="1" Width="415" HorizontalAlignment="Center" TextChanged="TextBoxPassword_TextChanged">
             <TextBox.ToolTip>
                 <ToolTip>
                     Введите пароль клиента.
@@ -71,14 +73,14 @@
             </TextBox.ToolTip>
         </TextBox>
 
-        <TextBox x:Name="TextBoxNumber" Grid.Row="5" Grid.Column="1" Width="415" HorizontalAlignment="Center" TextChanged="TextBoxNumber_TextChanged">
+        <TextBox x:Name="TextBoxNumber" Text ="{Binding PhoneNumber}" Grid.Row="5" Grid.Column="1" Width="415" HorizontalAlignment="Center" TextChanged="TextBoxNumber_TextChanged">
             <TextBox.ToolTip>
                 <ToolTip>
                     Введите номер телефона клиента.
                 </ToolTip>
             </TextBox.ToolTip>
         </TextBox>
-        <TextBox x:Name="TextBoxEmail" Grid.Row="6" Grid.Column="1" Width="415" HorizontalAlignment="Center" TextChanged="TextBoxEmail_TextChanged">
+        <TextBox x:Name="TextBoxEmail"  Text="{Binding Email}" Grid.Row="6" Grid.Column="1" Width="415" HorizontalAlignment="Center" TextChanged="TextBoxEmail_TextChanged">
         <TextBox.ToolTip>
                 <ToolTip>
                     Введите email клиента.
@@ -86,7 +88,13 @@
             </TextBox.ToolTip>
         </TextBox>
 
-        <Button Name="ButtonSave" Content="Сохранить" Grid.Row="7" Grid.ColumnSpan="2" Click="ButtonSave_Click"/>
+        <ComboBox x:Name="ComboBoxRole" Text="{Binding Role}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="415" Grid.Column="1" Margin="90,5,0,0" Grid.Row="7">
+            <ComboBoxItem IsSelected="True">Клиент</ComboBoxItem>
+            <ComboBoxItem>Менеджер</ComboBoxItem>
+        </ComboBox>
+
+
+        <Button Name="ButtonSave" Content="Сохранить" Grid.Row="8" Grid.ColumnSpan="2" Click="ButtonSave_Click"/>
           
             <TextBlock x:Name="txtsurname"  Grid.Column =" 1" Grid.Row ="0" Text="Введите фамилию" Foreground="Gray"  />
             <TextBlock x:Name="txtname"  Grid.Column =" 1" Grid.Row ="1" Text="Введите имя" Foreground="Gray"/>
@@ -95,6 +103,7 @@
             <TextBlock x:Name="txtpassword"  Grid.Column =" 1" Grid.Row ="4" Text="Введите пароль" Foreground="Gray"/>
             <TextBlock x:Name="txtnumber"  Grid.Column =" 1" Grid.Row ="5" Text="Введите номер телефона" Foreground="Gray"/>
             <TextBlock x:Name="txtemail"  Grid.Column =" 1" Grid.Row ="6" Text="Введите Email" Foreground="Gray"/>
+       
     </Grid>
    
 </Page>
