@@ -13,16 +13,16 @@
 
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
+
             <RowDefinition Height="*"/>
-      
-          
-    
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="ButtonUsers" Content="Пользователи" Grid.Row ="1" Click="ButtonUsers_Click" />
+        <Button x:Name="ButtonUsers" Content="Пользователи" Grid.Row ="2" Click="ButtonUsers_Click" />
+        <Button x:Name="ButtonSuppliers" Content="Поставщики" Grid.Row ="1" Click="ButtonSuppliers_Click"/>
 
     </Grid>
 

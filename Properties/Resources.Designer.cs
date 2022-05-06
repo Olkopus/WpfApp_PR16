@@ -63,9 +63,9 @@ namespace WpfApp_PR16.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap DefaultPhoto {
+        internal static System.Drawing.Bitmap DS {
             get {
-                object obj = ResourceManager.GetObject("DefaultPhoto", resourceCulture);
+                object obj = ResourceManager.GetObject("DS", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

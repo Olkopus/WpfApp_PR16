@@ -16,16 +16,15 @@ using System.Windows.Shapes;
 namespace WpfApp_PR16.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для AllUsers.xaml
+    /// Логика взаимодействия для AllSuppliers.xaml
     /// </summary>
-    public partial class AllUsers : Page
+    public partial class AllSuppliers : Page
     {
-        public AllUsers()
+        public AllSuppliers()
         {
             InitializeComponent();
-            var currentUsers = Entities.GetContext().User.ToList();
+            var currentUsers = Entities.GetContext().Supplier.ToList();
             ListUser.ItemsSource = currentUsers;
-            
         }
     }
 }

@@ -16,7 +16,7 @@ namespace WpfApp_PR16
     public partial class Entities : DbContext
     {
         private static Entities _context;
-    public static Entities GetContext()
+public static Entities GetContext()
         {
             if (_context == null)
                 _context = new Entities();

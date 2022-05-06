@@ -61,6 +61,7 @@
           <Property Name="INN" Type="nvarchar" MaxLength="12" Nullable="false" />
           <Property Name="LegalAddres" Type="nvarchar" MaxLength="100" />
           <Property Name="SettlementAccount" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Image" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="TypeOfPayment">
           <Key>
@@ -278,6 +279,7 @@
           <Property Name="LegalAddres" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="SettlementAccount" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Product" Relationship="Self.FK_Product_Supplier" FromRole="Supplier" ToRole="Product" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="TypeOfPayment">
           <Key>
@@ -486,6 +488,7 @@
           <EntitySetMapping Name="Supplier">
             <EntityTypeMapping TypeName="VoynalovichModel.Supplier">
               <MappingFragment StoreEntitySet="Supplier">
+                <ScalarProperty Name="Image" ColumnName="Image" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="INN" ColumnName="INN" />

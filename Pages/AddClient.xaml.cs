@@ -108,7 +108,7 @@ namespace WpfApp_PR16.Pages
                 errors.AppendLine("Укажите логин!");
             if (string.IsNullOrWhiteSpace(_user.Password))
                 errors.AppendLine("Укажите пароль!");
-            if (string.IsNullOrWhiteSpace(_user.PhoneNumber))
+            if (string.IsNullOrWhiteSpace(_user.Email))
                 errors.AppendLine("Укажите почту!");
             if (string.IsNullOrWhiteSpace(_user.PhoneNumber))
                 errors.AppendLine("Укажите номер телефона!");

@@ -25,6 +25,7 @@ namespace WpfApp_PR16
         public string INN { get; set; }
         public string LegalAddres { get; set; }
         public string SettlementAccount { get; set; }
+        public string Image { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Product> Product { get; set; }

@@ -39,5 +39,10 @@ namespace WpfApp_PR16.Pages
         {
             NavigationService?.Navigate(new AllUsers());
         }
+
+        private void ButtonSuppliers_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService?.Navigate(new AllSuppliers());
+        }
     }
 }
