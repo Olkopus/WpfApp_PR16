@@ -26,13 +26,18 @@ namespace WpfApp_PR16.Pages
             InitializeComponent();
         }
 
-        public string Login { get; internal set; }
-        public string Role { get; internal set; }
-        public string Surname { get; internal set; }
-        public string Patronymic { get; internal set; }
-        public string Password { get; internal set; }
-        public string Name { get; internal set; }
-        public string PhoneNumber { get; internal set; }
-        public int ID { get; internal set; }
+        //public string Login { get; internal set; }
+        //public string Role { get; internal set; }
+        //public string Surname { get; internal set; }
+        //public string Patronymic { get; internal set; }
+        //public string Password { get; internal set; }
+        //public string Name { get; internal set; }
+        //public string PhoneNumber { get; internal set; }
+        //public int ID { get; internal set; }
+
+        private void ButtonUsers_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService?.Navigate(new AllUsers());
+        }
     }
 }

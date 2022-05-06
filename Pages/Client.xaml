@@ -6,9 +6,24 @@
       xmlns:local="clr-namespace:WpfApp_PR16.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Client">
+      Title="Клиент">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+      
+          
+    
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="ButtonUsers" Content="Пользователи" Grid.Row ="1" Click="ButtonUsers_Click" />
+
     </Grid>
+
 </Page>

@@ -102,11 +102,11 @@
     <Compile Include="Pages\AddDeliveryType.xaml.cs">
       <DependentUpon>AddDeliveryType.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\AddOrder.xaml.cs">
-      <DependentUpon>AddOrder.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pages\AddSupplier.xaml.cs">
       <DependentUpon>AddSupplier.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AllUsers.xaml.cs">
+      <DependentUpon>AllUsers.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Calc.xaml.cs">
       <DependentUpon>Calc.xaml</DependentUpon>
@@ -172,11 +172,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\AddOrder.xaml">
+    <Page Include="Pages\AddSupplier.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\AddSupplier.xaml">
+    <Page Include="Pages\AllUsers.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -276,6 +276,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\DefaultPhoto.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
