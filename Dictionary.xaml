@@ -13,7 +13,7 @@
 
     <Style TargetType="Label">
         <Setter Property="FontFamily" Value="Segoe UI"/>
-        <Setter Property="FontSize" Value="14pt"/>
+      
         <Setter Property="Foreground" Value="Black"/>
         <Setter  Property="BorderBrush" Value="{x:Null}"/>
         <Setter  Property="HorizontalAlignment" Value="Center"/>
@@ -48,7 +48,7 @@
 
     <Style TargetType="TextBlock">
         <Setter Property="FontFamily" Value="Segoe UI"/>
-        <Setter Property="FontSize" Value="16pt"/>
+   
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="Foreground" Value="Black"/>
         <Setter Property="TextAlignment" Value="Center"/>

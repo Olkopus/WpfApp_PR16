@@ -13,6 +13,38 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+        <TextBox x:Name="TextBoxFIO" Text="" Margin="140,0,0,5" Width="150" FontSize="14" Grid.Row="0" TextChanged="TextBox_TextChanged"/>
+
+        <Label Content="Введите ФИО для поиска:" FontSize="11" Width="140" Grid.Row="0" HorizontalAlignment="Left"/>
+        <TextBlock x:Name="txtfio" TextWrapping="Wrap" Text="ФИО" VerticalAlignment="Top"  FontSize="14" Height="30" Margin="183,5,560,0" Width="57" Foreground="Gray" >
+            <TextBlock.ToolTip>
+                <ToolTip>
+                    Введите ФИО для поиска пользователя
+                </ToolTip>
+            </TextBlock.ToolTip>
+        </TextBlock>
+
+        <Label Content="Сортировка ФИО:"  Width="105" Margin="290,0,405,0" FontSize="11" Grid.Row="0"/>
+
+        <ComboBox x:Name="ComboBoxSort" VerticalAlignment="Top" Margin="395,0,250,0" Grid.Row="0" FontSize="11" SelectionChanged="ComboBoxSort_SelectionChanged">
+
+            <ComboBoxItem IsSelected="True">По возрастанию</ComboBoxItem>
+            <ComboBoxItem>По убыванию</ComboBoxItem>
+            <ComboBox.ToolTip>
+                <ToolTip>
+                    Выберите вид сортировки данных
+                </ToolTip>
+            </ComboBox.ToolTip>
+        </ComboBox>
+        <CheckBox x:Name="CheckBoxOnlyClients" Content="Только клиенты" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="555,5,0,0" Height="35" FontSize="11" Width="130" Grid.Row="0" Checked="CheckBoxOnlyClients_Checked" Unchecked="CheckBoxOnlyClients_Unchecked">
+            <CheckBox.ToolTip>
+                <ToolTip>
+                    Нажмите, чтобы показать только клиентов
+                </ToolTip>
+            </CheckBox.ToolTip>
+        </CheckBox>
+        <Button x:Name="Clear" Content="Очистить фильтр" HorizontalAlignment="Right" VerticalAlignment="Center" Width="100" FontSize="11"  Grid.Row="0" RenderTransformOrigin="0.2,0.769" Margin="0,0,25,1" Click="Clear_Click"/>
+
         <ListView Name="ListUser" Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Center">
 
             <ListView.ItemsPanel>
@@ -52,7 +84,15 @@ Text="{Binding Role}"/>
                 </DataTemplate>
             </ListView.ItemTemplate>
 
+
+
         </ListView>
+
+
+
+
+
+
     </Grid>
 
 

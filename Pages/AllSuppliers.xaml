@@ -6,13 +6,58 @@
       xmlns:local="clr-namespace:WpfApp_PR16.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="AllSuppliers">
+      Title="Поставщики">
 
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+        <TextBox x:Name="TextBoxName" Text="" Margin="105,0,0,5" Width="135" FontSize="14" Grid.Row="0" TextChanged="TextBoxName_TextChanged"/>
+
+        <Label FontSize="11" Width="105" Grid.Row="0" HorizontalAlignment="Left" >
+            <TextBlock TextWrapping="WrapWithOverflow" Width="95">
+                 Введите название для поиска:
+            </TextBlock>
+        </Label>
+        <TextBlock x:Name="txtname" TextWrapping="Wrap" Text="Название" VerticalAlignment="Top"  FontSize="14" Height="30" Margin="138,5,585,0" Width="77" Foreground="Gray" >
+            <TextBlock.ToolTip>
+                <ToolTip>
+                    Введите наименование для поиска поставщика
+                </ToolTip>
+            </TextBlock.ToolTip>
+        </TextBlock>
+
+        <Label  Width="80" Margin="235,0,485,0" FontSize="11" Grid.Row="0">
+            <TextBlock TextWrapping="WrapWithOverflow">
+                 Сортировка названия:
+            </TextBlock>
+        </Label>
+        <ComboBox x:Name="ComboBoxSort" VerticalAlignment="Top" Margin="315,0,330,0" Grid.Row="0" FontSize="11" SelectionChanged="ComboBoxSort_SelectionChanged">
+            <ComboBoxItem IsSelected="True">По возрастанию</ComboBoxItem>
+            <ComboBoxItem>По убыванию</ComboBoxItem>
+            <ComboBox.ToolTip>
+                <ToolTip>
+                    Выберите вид сортировки данных
+                </ToolTip>
+            </ComboBox.ToolTip>
+        </ComboBox>
+
+        <Label FontSize="11" Width="80" Grid.Row="0" HorizontalAlignment="Right" Margin="0,0,230,0">
+            <TextBlock TextWrapping="WrapWithOverflow" Width="74" RenderTransformOrigin="0.743,-0.207">
+                 Введите ИНН для поиска:
+            </TextBlock>
+        </Label>
+        <TextBlock x:Name="txtinn" TextWrapping="Wrap" Text="ИНН" VerticalAlignment="Top"  FontSize="14" Height="30" Margin="595,5,128,0" Width="77" Foreground="Gray" RenderTransformOrigin="0.221,0.333" >
+            <TextBlock.ToolTip>
+                <ToolTip>
+                    Введите инн для поиска поставщика
+                </ToolTip>
+            </TextBlock.ToolTip>
+        </TextBlock>
+        <TextBox x:Name="TextBoxINN" Text="" Margin="575,0,0,5" Width="110" FontSize="14" Grid.Row="0" TextChanged="TextBoxINN_TextChanged"/>
+        <Button x:Name="Clear" Content="Очистить фильтр" HorizontalAlignment="Right" VerticalAlignment="Center" Width="100" FontSize="11"  Grid.Row="0" RenderTransformOrigin="0.2,0.769" Margin="0,0,5,1" Click="Clear_Click"/>
+
         <ListView Name="ListUser" Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Center">
 
             <ListView.ItemsPanel>
@@ -32,6 +77,7 @@
                             <RowDefinition Height="auto"></RowDefinition>
                             <RowDefinition Height="auto"></RowDefinition>
                         </Grid.RowDefinitions>
+
                         <Image Width="150" Grid.Row="1" Stretch="UniformToFill" HorizontalAlignment="Center">
                             <Image.Source>
                                 <Binding Path="Image">
@@ -43,12 +89,13 @@
                         </Image>
                         <TextBlock VerticalAlignment="Center" TextAlignment="Center" Width="150" Grid.Row="2" TextWrapping="Wrap" Text="{Binding Name}" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold"/>
                         <TextBlock VerticalAlignment="Center" TextAlignment="Center" Width="150" Grid.Row="3" TextWrapping="Wrap" Text="{Binding INN}" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold"/>
-    
+
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
 
         </ListView>
+
     </Grid>
 
 </Page>
